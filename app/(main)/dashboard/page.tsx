@@ -16,15 +16,8 @@ const Dashboard = () => {
     <div>
       This is the Dashboard Page
       <h2>{user?.email}</h2>
-      <h2>{user?.user_metadata?.full_name}</h2>
-      <button
-        className="ml-4 p-2 bg-red-500 text-white rounded cursor-pointer"
-        onClick={() => {
-          client.auth.signOut();
-        }}
-      >
-        Log out
-      </button>
+      <h2>{user?.user_metadata?.full_name.split(" ")[0]}</h2>
+    
     </div>
   );
 };

@@ -13,7 +13,7 @@ export const navigation = [
   { name: "Contacts", href: "/contacts", icon: Users },
   { name: "History", href: "/history", icon: History },
   { name: "Schedule", href: "/schedule", icon: Calendar },
-  { name: "Test Calls", href: "/test-calls", icon: TestTube2 },
+  { name: "Agent Settings", href: "/agent-settings", icon: TestTube2 },
   { name: "Subscription", href: "/subscription", icon: CircleDollarSign },
   { name: "Settings", href: "/settings", icon: Settings },
 ];

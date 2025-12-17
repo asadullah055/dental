@@ -8,8 +8,8 @@ export default function DashboardLayout() {
   const pathname = usePathname();
 
   return (
-    <aside className="w-96 h-screen border-r border-gray-200 bg-white shadow-sm">
-      <div className="p-6 border-b border-gray-100">
+    <aside className="w-96 h-screen border-r border-red-200 bg-white shadow-sm sticky top-0 left-0">
+      <div className="px-6 py-3 border-b border-gray-100 ">
         <h1 className="text-xl font-bold">Dental Clinic</h1>
         <p className="text-sm text-gray-500">Dashboard</p>
       </div>
