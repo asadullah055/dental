@@ -48,15 +48,6 @@ export default function VoiceSelector({ voices, value, onChange }: Props) {
     new Audio(audio).play();
   };
 
-  // 🖨 Debug
-  console.log({
-    gender,
-    accent,
-    search,
-    selectedVoice: value,
-    filteredCount: filteredVoices.length,
-  });
-
   return (
     <div className="space-y-4">
       <h3 className="text-lg font-semibold">Agent Voice</h3>
@@ -82,7 +73,7 @@ export default function VoiceSelector({ voices, value, onChange }: Props) {
         {/* Search */}
         <input
           placeholder="Search voice..."
-          className="ml-auto border rounded-lg px-3 py-2 text-sm w-56"
+          className="ml-auto border border-gray-200 rounded-lg px-3 py-2 text-sm w-56 focus:outline-none focus:ring-1 focus:ring-gray-300"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
@@ -90,10 +81,10 @@ export default function VoiceSelector({ voices, value, onChange }: Props) {
 
       {/* Table */}
       <div className="border border-gray-200 rounded-xl overflow-hidden">
-        <div className="max-h-[420px] overflow-y-auto">
+        <div className="max-h-[460px] overflow-y-auto">
           <table className="w-full text-sm">
             <thead className="bg-gray-50 sticky top-0 z-10">
-              <tr className="text-left text-gray-500">
+              <tr className=" text-gray-800 text-center">
                 <th className="px-4 py-3">Voice</th>
                 <th className="px-4 py-3">Trait</th>
                 <th className="px-4 py-3">Voice ID</th>
@@ -108,7 +99,7 @@ export default function VoiceSelector({ voices, value, onChange }: Props) {
                 return (
                   <tr
                     key={voice.id}
-                    className={`border-t hover:bg-gray-50 ${
+                    className={`border-t border-gray-300 bg-white hover:bg-gray-100 ${
                       selected ? "bg-blue-50/40" : ""
                     }`}
                   >
@@ -117,10 +108,9 @@ export default function VoiceSelector({ voices, value, onChange }: Props) {
                       {/* ▶ Play */}
                       <button
                         onClick={() => playVoice(voice.audio)}
-                        className="w-8 h-8 flex items-center justify-center 
-                                   border rounded-full hover:bg-gray-100"
+                        className="cursor-pointer"
                       >
-                        <Play size={14} />
+                        <Play size={18} className="font-bold" />
                       </button>
 
                       <img
@@ -128,42 +118,40 @@ export default function VoiceSelector({ voices, value, onChange }: Props) {
                         className="w-8 h-8 rounded-full"
                       />
 
-                      <span className="font-medium">{voice.name}</span>
+                      <span className="font-semibold text-gray-800">
+                        {voice.name}
+                      </span>
                     </td>
 
                     {/* Traits */}
                     <td className="px-4 py-3">
                       <div className="flex gap-2 flex-wrap">
                         {voice.accent && (
-                          <span className="px-2 py-0.5 bg-gray-100 rounded-full text-xs">
+                          <span className="px-2 py-1 bg-gray-100 text-gray-700 font-semibold rounded-full text-xs">
                             {voice.accent}
                           </span>
                         )}
-                        <span className="px-2 py-0.5 bg-gray-100 rounded-full text-xs">
+                        <span className="px-2 py-1 bg-gray-100 text-gray-700 font-semibold rounded-full text-xs">
                           {voice.gender === "male" ? "Male" : "Female"}
-                        </span>
-                        <span className="px-2 py-0.5 bg-gray-100 rounded-full text-xs">
-                          Retell
                         </span>
                       </div>
                     </td>
 
                     {/* Voice ID */}
-                    <td className="px-4 py-3 text-gray-600">{voice.id}</td>
+                    <td className="px-4 py-3 text-gray-800">{voice.id}</td>
 
                     {/* Action */}
                     <td className="px-4 py-3 text-right">
                       <button
                         onClick={() => {
                           onChange(voice);
-                          console.log("Selected voice:", voice);
                         }}
-                        className={`flex items-center gap-2 px-4 py-1.5 rounded-full
-                          text-sm font-medium border ml-auto
+                        className={`flex items-center gap-2 px-3 py-1.5 rounded-full shadow
+                          text-sm font-medium border border-gray-300 ml-auto cursor-pointer
                           ${
                             selected
-                              ? "bg-white text-black"
-                              : "bg-gray-900 text-white"
+                              ? "bg-white text-gray-800"
+                              : "bg-white text-gray-800"
                           }`}
                       >
                         {selected && <Check size={16} />}

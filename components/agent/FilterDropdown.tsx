@@ -37,7 +37,7 @@ export default function FilterDropdown({
         type="button"
         onClick={() => setOpen((p) => !p)}
         className="w-full flex items-center justify-between
-                   border rounded-lg px-3 py-2 bg-white"
+                   border border-gray-300 shadow rounded-lg px-3 py-2 bg-white"
       >
         <span>{value || placeholder}</span>
         <ChevronDown size={16} />
@@ -45,7 +45,7 @@ export default function FilterDropdown({
 
       {/* Dropdown */}
       {open && (
-        <ul className="absolute z-20 mt-2 w-full bg-white border rounded-lg shadow-lg">
+        <ul className="absolute z-20 mt-2 w-full bg-white border border-gray-200 rounded-lg shadow-lg capitalize py-2">
           {/* All */}
           <li
             onClick={() => {
@@ -53,7 +53,7 @@ export default function FilterDropdown({
               setOpen(false);
             }}
             className="px-3 py-2 flex items-center gap-2
-                       hover:bg-gray-50 cursor-pointer"
+                       hover:bg-gray-50 cursor-pointer "
           >
             <Check
               size={14}
